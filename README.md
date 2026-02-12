@@ -50,22 +50,22 @@ http://localhost:3000
 
 ## 🎯 Objetivos do projeto
 
-- Servir como base do Lumus Digital  
-- Evoluir para portfólio pessoal  
-- Ter blog técnico  
-- Showcase de projetos  
-- Base para possíveis produtos e serviços  
+- Servir como base do Lumus Digital
+- Evoluir para portfólio pessoal
+- Ter blog técnico
+- Showcase de projetos
+- Base para possíveis produtos e serviços
 
 ---
 
 ## 🛣 Roadmap inicial
 
-- [x] Setup Next.js  
-- [x] Página "Em breve"  
-- [ ] Deploy na Vercel  
-- [ ] Página inicial  
-- [ ] Sobre  
-- [ ] Blog  
+- [x] Setup Next.js
+- [x] Página "Em breve"
+- [x] Deploy na Vercel
+- [ ] Página inicial
+- [ ] Sobre
+- [ ] Blog
 
 ---
 
