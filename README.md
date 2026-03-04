@@ -48,6 +48,20 @@ http://localhost:3000
 
 ---
 
+## 📚 Como rodar o Storybook
+
+Para visualizar e documentar os componentes isoladamente, utilize o Storybook:
+
+```bash
+npm run storybook
+```
+
+O Storybook estará disponível em:
+
+http://localhost:6006
+
+---
+
 ## 🎯 Objetivos do projeto
 
 - Servir como base do Lumus Digital
@@ -63,9 +77,16 @@ http://localhost:3000
 - [x] Setup Next.js
 - [x] Página "Em breve"
 - [x] Deploy na Vercel
-- [ ] Página inicial
-- [ ] Sobre
-- [ ] Blog
+- [x] Setup storybook
+- [x] Setup testes unitários
+- [x] Padronização de componentes e páginas, incluindo generate
+- [x] Página "Home"
+- [x] Página "Sobre"
+- [x] Página "Contato"
+- [ ] Configuração para GitHub Copilot
+- [ ] Página "Blog"
+- [ ] Customização de páginas de erro
+- [ ] Translation
 
 ---
 

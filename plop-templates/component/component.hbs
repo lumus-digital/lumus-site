@@ -13,7 +13,11 @@ import I{{pascalCase name}}Props from './types'
  * ```
  */
 
-export function {{pascalCase name}}({ children, className, dataTestId }: I{{pascalCase name}}Props) {
+export default function {{pascalCase name}}({
+  children,
+  className,
+  dataTestId,
+}: I{{pascalCase name}}Props) {
   return (
     <p className={className} data-testid={dataTestId}>
       {children}

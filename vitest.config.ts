@@ -13,15 +13,23 @@ const dirname =
     : path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
+  resolve: {
+    alias: {
+      '@/app': path.resolve(__dirname, 'app'),
+      '@/routes': path.resolve(__dirname, 'app/routes.ts'),
+      '@/components': path.resolve(__dirname, 'src/components'),
+      '@/tokens': path.resolve(__dirname, 'src/tokens.ts'),
+    },
+  },
   test: {
     environment: 'jsdom',
     globals: true,
-    setupFiles: './app/setupTests.ts',
+    setupFiles: './setupTests.ts',
     include: ['**/*.spec.{ts,tsx}'],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html'],
-      include: ['app/**/*.{ts,tsx}'],
+      include: ['app/**/*.{ts,tsx}', 'src/**/*.{ts,tsx}'],
       exclude: ['**/*.stories.*', '.storybook/**'],
       thresholds: {
         lines: 80,
@@ -34,8 +42,6 @@ export default defineConfig({
       {
         extends: true,
         plugins: [
-          // The plugin will run tests for the stories defined in your Storybook config
-          // See options at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon#storybooktest
           storybookTest({ configDir: path.join(dirname, '.storybook') }),
         ],
         test: {

@@ -19,7 +19,10 @@
       }
     ],
     "paths": {
-      "@/*": ["./app/*"]
+      "@/app*": ["./app/*"],
+      "@/routes*": ["./app/routes.ts"],
+      "@/components*": ["./src/components/*"],
+      "@/tokens*": ["./src/tokens.ts"]
     }
   },
   "include": [

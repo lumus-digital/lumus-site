@@ -11,27 +11,22 @@ module.exports = function (plop) {
     actions: [
       {
         type: 'add',
-        path: 'app/pages/{{pascalCase name}}/{{pascalCase name}}.tsx',
+        path: 'app/{{kebabCase name}}/page.tsx',
         templateFile: 'plop-templates/page/page.hbs',
       },
       {
         type: 'add',
-        path: 'app/pages/{{pascalCase name}}/index.tsx',
-        templateFile: 'plop-templates/index.hbs',
-      },
-      {
-        type: 'add',
-        path: 'app/pages/{{pascalCase name}}/{{pascalCase name}}.stories.tsx',
+        path: 'app/{{kebabCase name}}/stories.tsx',
         templateFile: 'plop-templates/page/stories.hbs',
       },
       {
         type: 'add',
-        path: 'app/pages/{{pascalCase name}}/types.ts',
+        path: 'app/{{kebabCase name}}/types.ts',
         templateFile: 'plop-templates/page/types.hbs',
       },
       {
         type: 'add',
-        path: 'app/test/pages/{{pascalCase name}}/{{pascalCase name}}.spec.tsx',
+        path: 'test/pages/{{kebabCase name}}/{{kebabCase name}}.spec.tsx',
         templateFile: 'plop-templates/page/spec.hbs',
       },
     ],
@@ -49,27 +44,22 @@ module.exports = function (plop) {
     actions: [
       {
         type: 'add',
-        path: 'app/components/{{pascalCase name}}/{{pascalCase name}}.tsx',
+        path: 'src/components/{{pascalCase name}}/index.tsx',
         templateFile: 'plop-templates/component/component.hbs',
       },
       {
         type: 'add',
-        path: 'app/components/{{pascalCase name}}/index.tsx',
-        templateFile: 'plop-templates/index.hbs',
-      },
-      {
-        type: 'add',
-        path: 'app/components/{{pascalCase name}}/{{pascalCase name}}.stories.tsx',
+        path: 'src/components/{{pascalCase name}}/stories.tsx',
         templateFile: 'plop-templates/component/stories.hbs',
       },
       {
         type: 'add',
-        path: 'app/components/{{pascalCase name}}/types.ts',
+        path: 'src/components/{{pascalCase name}}/types.ts',
         templateFile: 'plop-templates/component/types.hbs',
       },
       {
         type: 'add',
-        path: 'app/test/components/{{pascalCase name}}/{{pascalCase name}}.spec.tsx',
+        path: 'test/components/{{pascalCase name}}/{{pascalCase name}}.spec.tsx',
         templateFile: 'plop-templates/component/spec.hbs',
       },
     ],
