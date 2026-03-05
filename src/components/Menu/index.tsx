@@ -115,7 +115,7 @@ export default function Menu() {
               <Link
                 key={item.name}
                 to={item.to}
-                size="md"
+                size="xl"
                 className={colors.primaryInverse}
                 onClick={() => setOpenMenu(false)}
               >

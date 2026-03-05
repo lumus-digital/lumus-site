@@ -16,7 +16,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: 'Lumus Digital',
-  description: 'Construindo experiências digitais com propósito.',
+  description:
+    'Construindo experiências digitais com criatividade, inovação e propósito.',
+  metadataBase: new URL('https://www.lumus-digital.dev.br'),
 }
 
 export default function RootLayout({
@@ -62,7 +64,6 @@ export default function RootLayout({
               ></div>
             </div>
           </div>
-          {/* <div className="fixed inset-0 bg-gradient-to-br from-purple-700 via-purple-500 to-fuchsia-500 animate-gradient-x -z-10" /> */}
           {children}
           {/* Background blobs */}
           <div

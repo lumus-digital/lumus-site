@@ -83,6 +83,8 @@ http://localhost:6006
 - [x] Página "Home"
 - [x] Página "Sobre"
 - [x] Página "Contato"
+- [ ] SEO
+- [ ] Otimização de imagens
 - [ ] Configuração para GitHub Copilot
 - [ ] Página "Blog"
 - [ ] Customização de páginas de erro
