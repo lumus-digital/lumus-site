@@ -48,9 +48,8 @@ export default function Menu() {
           <Image
             src="/lumus-digital-logo.png"
             alt="Lumus Digital Logo"
-            className="h-18 w-auto"
-            width={72}
-            height={72}
+            width={180}
+            height={180}
           />
         </Link>
       </div>
@@ -84,9 +83,8 @@ export default function Menu() {
               <Image
                 src="/lumus-digital-logo.png"
                 alt="Lumus Digital Logo"
-                className="h-18 w-auto"
-                width={72}
-                height={72}
+                width={180}
+                height={180}
               />
             </Link>
             <button
