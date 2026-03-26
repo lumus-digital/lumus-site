@@ -1,6 +1,6 @@
 # Lumus Digital
 
-Lumus Digital é um laboratório pessoal de experimentação, aprendizado e criação de experiências digitais.
+Lumus Digital é uma iniciativa pessoal focada em experimentação, aprendizado contínuo e na criação de experiências digitais significativas.
 
 Este repositório contém o site institucional do projeto.
 
@@ -92,4 +92,4 @@ http://localhost:6006
 
 ---
 
-Construído com cuidado e intenção ✨
+Inspired by stories. Built with logic. ✨
