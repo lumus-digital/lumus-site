@@ -10,5 +10,5 @@ export interface IButtonProps {
   onClick?: React.MouseEventHandler<HTMLElement> // Simplified event handler
   disabled?: boolean
   'aria-label'?: string // Explicitly define aria-label as an optional prop
-  'data-test-id'?: string // Add data-test-id for testing purposes
+  'data-testid'?: string // Add data-testid for testing purposes
 }

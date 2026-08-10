@@ -5,7 +5,7 @@ import Link from '@/components/Link'
 describe('Link component', () => {
   it('should render children correctly', () => {
     render(
-      <Link to="/test" data-test-id="link">
+      <Link to="/test" data-testid="link">
         Test content
       </Link>,
     )
@@ -15,7 +15,7 @@ describe('Link component', () => {
 
   it('renders an external link with target and rel attributes', () => {
     render(
-      <Link to="https://example.com" isExternal data-test-id="external-link">
+      <Link to="https://example.com" isExternal data-testid="external-link">
         External Link
       </Link>,
     )
@@ -27,7 +27,7 @@ describe('Link component', () => {
 
   it('renders an internal link without target and rel attributes', () => {
     render(
-      <Link to="/internal" data-test-id="internal-link">
+      <Link to="/internal" data-testid="internal-link">
         Internal Link
       </Link>,
     )
@@ -39,11 +39,7 @@ describe('Link component', () => {
 
   it('applies custom class names', () => {
     render(
-      <Link
-        to="/test"
-        className="custom-class"
-        data-test-id="custom-class-link"
-      >
+      <Link to="/test" className="custom-class" data-testid="custom-class-link">
         Test Link
       </Link>,
     )
@@ -55,7 +51,7 @@ describe('Link component', () => {
       <Link
         to="/test"
         icon={<span data-testid="icon">Icon</span>}
-        data-test-id="icon-link"
+        data-testid="icon-link"
       />,
     )
     expect(screen.getByTestId('icon')).toBeInTheDocument()

@@ -4,19 +4,19 @@ import Text from '@/components/Text'
 
 describe('Text component', () => {
   it('should render children correctly', () => {
-    render(<Text data-test-id="text">Test content</Text>)
+    render(<Text data-testid="text">Test content</Text>)
     expect(screen.getByTestId('text')).toBeInTheDocument()
   })
 
   it('renders correctly with default element', () => {
-    render(<Text data-test-id="default-text">Default Text</Text>)
+    render(<Text data-testid="default-text">Default Text</Text>)
     const text = screen.getByTestId('default-text')
     expect(text.tagName).toBe('P')
   })
 
   it('renders with a custom element', () => {
     render(
-      <Text as="h1" data-test-id="heading-text">
+      <Text as="h1" data-testid="heading-text">
         Heading Text
       </Text>,
     )
@@ -26,7 +26,7 @@ describe('Text component', () => {
 
   it('renders with a custom element using the as prop', () => {
     render(
-      <Text as="span" data-test-id="custom-element-text">
+      <Text as="span" data-testid="custom-element-text">
         Custom Element Text
       </Text>,
     )
@@ -36,7 +36,7 @@ describe('Text component', () => {
 
   it('applies custom class names', () => {
     render(
-      <Text className="custom-class" data-test-id="styled-text">
+      <Text className="custom-class" data-testid="styled-text">
         Styled Text
       </Text>,
     )
@@ -44,9 +44,9 @@ describe('Text component', () => {
     expect(text).toHaveClass('custom-class')
   })
 
-  it('renders with data-test-id', () => {
-    render(<Text data-test-id="text-id">Test ID</Text>)
+  it('renders with data-testid', () => {
+    render(<Text data-testid="text-id">Test ID</Text>)
     const text = screen.getByTestId('text-id')
-    expect(text).toHaveAttribute('data-test-id', 'text-id')
+    expect(text).toHaveAttribute('data-testid', 'text-id')
   })
 })

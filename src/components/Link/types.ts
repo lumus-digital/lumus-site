@@ -13,5 +13,5 @@ export default interface ILinkProps {
     event: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement, MouseEvent>,
   ) => void
   'aria-label'?: string
-  'data-test-id'?: string
+  'data-testid'?: string
 }

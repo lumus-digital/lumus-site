@@ -7,7 +7,7 @@ import { ITextProps } from './types'
  *
  * @example
  * ```tsx
- * <Text as="h1" dataTestId="heading-about">
+ * <Text as="h1" data-testid="heading-about">
  *   About Us
  * </Text>
  * ```
@@ -16,11 +16,11 @@ import { ITextProps } from './types'
 export default function Text({
   children,
   className,
-  'data-test-id': dataTestId,
+  'data-testid': dataTestId,
   as: Component = 'p',
 }: ITextProps) {
   return (
-    <Component className={className} data-test-id={dataTestId}>
+    <Component className={className} data-testid={dataTestId}>
       {children}
     </Component>
   )

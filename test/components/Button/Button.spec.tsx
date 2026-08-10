@@ -4,7 +4,7 @@ import Button from '@/components/Button'
 
 describe('Button component', () => {
   it('should render children correctly', () => {
-    render(<Button data-test-id="button">Test content</Button>)
+    render(<Button data-testid="button">Test content</Button>)
     expect(screen.getByTestId('button')).toBeInTheDocument()
   })
 
@@ -12,7 +12,7 @@ describe('Button component', () => {
     render(
       <Button
         icon={<span data-testid="icon">Icon</span>}
-        data-test-id="icon-button"
+        data-testid="icon-button"
       />,
     )
     expect(screen.getByTestId('icon-button')).toBeInTheDocument()
@@ -22,7 +22,7 @@ describe('Button component', () => {
   it('handles click events', () => {
     const handleClick = vi.fn()
     render(
-      <Button onClick={handleClick} data-test-id="click-button">
+      <Button onClick={handleClick} data-testid="click-button">
         Click Me
       </Button>,
     )
@@ -32,7 +32,7 @@ describe('Button component', () => {
 
   it('applies custom class names', () => {
     render(
-      <Button className="custom-class" data-test-id="custom-class-button">
+      <Button className="custom-class" data-testid="custom-class-button">
         Click Me
       </Button>,
     )
@@ -46,7 +46,7 @@ describe('Button component', () => {
       <Button
         icon={<span />}
         aria-label="Icon Button"
-        data-test-id="icon-only-button"
+        data-testid="icon-only-button"
       />,
     )
     expect(screen.getByTestId('icon-only-button')).toBeInTheDocument()

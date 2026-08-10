@@ -21,6 +21,7 @@ export default function Menu() {
   const menuItems = [
     { name: 'Home', to: routes.HOME },
     { name: 'About', to: routes.ABOUT },
+    { name: 'Blog', to: routes.BLOG },
     { name: 'Contact', to: routes.CONTACT },
   ]
 
@@ -46,7 +47,7 @@ export default function Menu() {
       <div className="flex lg:flex-1">
         <Link to={routes.HOME} className="">
           <Image
-            src="/lumus-digital-logo.png"
+            src="/images/lumus-digital-logo.png"
             alt="Lumus Digital Logo"
             width={180}
             height={180}
@@ -77,11 +78,11 @@ export default function Menu() {
       </div>
       {/* Mobile menu overlay */}
       {openMenu && (
-        <div className="fixed inset-0 bg-gray-900/90 flex flex-col items-center justify-center gap-8 z-[9999]">
+        <div className="fixed inset-0 bg-gray-900/90 backdrop-blur-md flex flex-col items-center justify-center gap-8 z-[9999]">
           <div className="absolute top-6 left-6 right-6 flex items-center justify-between w-auto">
             <Link to={routes.HOME} className="flex items-center">
               <Image
-                src="/lumus-digital-logo.png"
+                src="/images/lumus-digital-logo.png"
                 alt="Lumus Digital Logo"
                 width={180}
                 height={180}
@@ -115,6 +116,7 @@ export default function Menu() {
                 to={item.to}
                 size="xl"
                 className={colors.primaryInverse}
+                data-testid={`mobile-menu-item-${item.name.toLowerCase()}`}
                 onClick={() => setOpenMenu(false)}
               >
                 {item.name}
@@ -131,6 +133,7 @@ export default function Menu() {
             to={item.to}
             size="md"
             className={`${colors.inverseLink}`}
+            data-testid={`desktop-menu-item-${item.name.toLowerCase()}`}
           >
             {item.name}
           </Link>

@@ -18,6 +18,7 @@ export default defineConfig({
       '@/app': path.resolve(__dirname, 'app'),
       '@/routes': path.resolve(__dirname, 'app/routes.ts'),
       '@/components': path.resolve(__dirname, 'src/components'),
+      '@/mocks': path.resolve(__dirname, 'src/mocks'),
       '@/tokens': path.resolve(__dirname, 'src/tokens.ts'),
     },
   },
@@ -25,12 +26,11 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     setupFiles: './setupTests.ts',
-    include: ['**/*.spec.{ts,tsx}'],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html'],
       include: ['app/**/*.{ts,tsx}', 'src/**/*.{ts,tsx}'],
-      exclude: ['**/*.stories.*', '.storybook/**'],
+      exclude: ['**/*.stories.*', '.storybook/**', '**/types.ts'],
       thresholds: {
         lines: 80,
         functions: 80,
@@ -39,6 +39,13 @@ export default defineConfig({
       },
     },
     projects: [
+      {
+        extends: true,
+        test: {
+          name: 'unit',
+          include: ['**/*.spec.{ts,tsx}'],
+        },
+      },
       {
         extends: true,
         plugins: [

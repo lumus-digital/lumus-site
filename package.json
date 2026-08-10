@@ -9,7 +9,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test": "vitest",
-    "test:ui": "vitest --ui",
+    "test:unit": "vitest --project=unit",
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
     "lint": "eslint",
@@ -18,6 +18,7 @@
     "generate": "plop"
   },
   "dependencies": {
+    "lucide-react": "^1.31.0",
     "next": "16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3"
@@ -25,7 +26,6 @@
   "devDependencies": {
     "@chromatic-com/storybook": "^5.0.0",
     "@storybook/addon-a11y": "^10.2.7",
-    "@storybook/addon-actions": "^9.0.8",
     "@storybook/addon-docs": "^10.2.7",
     "@storybook/addon-onboarding": "^10.2.7",
     "@storybook/addon-vitest": "^10.2.7",

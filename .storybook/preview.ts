@@ -1,23 +1,13 @@
 import type { Preview } from '@storybook/nextjs-vite'
+import { action } from 'storybook/actions'
 import '../src/globals.css'
 
-// Função helper para criar mocks que aparecem nas Actions do Storybook
+// Cria um mock que dispara a action nativa e resolve como Promise (exigido pela API de router do Next.js)
 const createActionMock = (actionName: string) => {
   const mockFn = (...args: unknown[]) => {
-    // Despacha um evento customizado que o Storybook captura
-    if (typeof window !== 'undefined') {
-      window.postMessage(
-        {
-          type: 'storybook-action',
-          action: actionName,
-          args,
-        },
-        '*',
-      )
-    }
+    action(actionName)(...args)
     return Promise.resolve()
   }
-  mockFn.mockName = actionName
   return mockFn
 }
 

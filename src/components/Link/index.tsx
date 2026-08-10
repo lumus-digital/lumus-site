@@ -10,7 +10,7 @@ import NextLink from 'next/link'
  *
  * @example
  * ```tsx
- * <Link to="/about" dataTestId="link-about">
+ * <Link to="/about" data-testid="link-about">
  *   About Us
  * </Link>
  * ```
@@ -25,7 +25,7 @@ export default function Link({
   icon,
   onClick,
   'aria-label': ariaLabel,
-  'data-test-id': dataTestId,
+  'data-testid': dataTestId,
   ...props
 }: ILinkProps) {
   // Map size to Tailwind classes
@@ -48,7 +48,7 @@ export default function Link({
         target="_blank"
         rel="noopener noreferrer"
         aria-label={ariaLabel}
-        data-test-id={dataTestId || 'external-link'}
+        data-testid={dataTestId || 'external-link'}
         onClick={onClick}
         {...props}
       >
@@ -63,7 +63,7 @@ export default function Link({
       href={to}
       className={baseClass}
       aria-label={ariaLabel}
-      data-test-id={dataTestId || 'internal-link'}
+      data-testid={dataTestId || 'internal-link'}
       onClick={onClick}
       {...props}
     >

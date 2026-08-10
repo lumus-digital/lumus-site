@@ -15,10 +15,28 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Lumus Digital',
+  title: {
+    default: 'Lumus Digital',
+    template: '%s | Lumus Digital',
+  },
   description:
     'Construindo experiências digitais com criatividade, inovação e propósito.',
   metadataBase: new URL('https://www.lumus-digital.dev.br'),
+  openGraph: {
+    title: 'Lumus Digital',
+    description:
+      'Construindo experiências digitais com criatividade, inovação e propósito.',
+    url: 'https://www.lumus-digital.dev.br',
+    siteName: 'Lumus Digital',
+    locale: 'pt_BR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Lumus Digital',
+    description:
+      'Construindo experiências digitais com criatividade, inovação e propósito.',
+  },
 }
 
 export default function RootLayout({
@@ -27,7 +45,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <link
           rel="icon"
@@ -41,7 +59,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiasedcer min-h-screen flex flex-col`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
         <Header />
         <main className="flex-1 flex flex-col">

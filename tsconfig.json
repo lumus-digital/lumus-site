@@ -22,6 +22,7 @@
       "@/app*": ["./app/*"],
       "@/routes*": ["./app/routes.ts"],
       "@/components*": ["./src/components/*"],
+      "@/mocks*": ["./src/mocks/*"],
       "@/tokens*": ["./src/tokens.ts"]
     }
   },

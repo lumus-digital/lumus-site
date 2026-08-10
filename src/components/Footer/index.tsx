@@ -1,4 +1,4 @@
-import Text from '@/componentsText'
+import Text from '@/components/Text'
 import { colors } from '@/tokens'
 
 /**

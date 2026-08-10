@@ -1,6 +1,29 @@
+import type { Metadata } from 'next'
 import Text from '@/components/Text'
 import { colors } from '@/tokens'
 import Image from 'next/image'
+
+export const metadata: Metadata = {
+  title: 'Sobre',
+  description:
+    'Conheça a história da Lumus Digital e da desenvolvedora por trás da marca.',
+  alternates: {
+    canonical: '/about',
+  },
+  openGraph: {
+    title: 'Sobre',
+    description:
+      'Conheça a história da Lumus Digital e da desenvolvedora por trás da marca.',
+    url: '/about',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sobre',
+    description:
+      'Conheça a história da Lumus Digital e da desenvolvedora por trás da marca.',
+  },
+}
 
 export default function About() {
   return (
@@ -9,7 +32,7 @@ export default function About() {
       <Text
         as="h1"
         className="text-3xl md:hidden font-bold text-white mb-2 text-center"
-        data-test-id="about-title"
+        data-testid="about-title-mobile"
       >
         Sobre a Lumus Digital
       </Text>
@@ -18,7 +41,7 @@ export default function About() {
         <div className="flex-1 flex items-center justify-center mb-8 md:mb-0 md:block">
           <div className="sticky top-8">
             <Image
-              src="/about.png"
+              src="/images/about.png"
               alt="Marca Lumus Digital"
               width={400}
               height={400}
@@ -31,7 +54,7 @@ export default function About() {
           <Text
             as="h1"
             className="hidden md:block text-3xl md:text-4xl font-bold text-white mb-2"
-            data-test-id="about-title"
+            data-testid="about-title-desktop"
           >
             Sobre a Lumus Digital
           </Text>

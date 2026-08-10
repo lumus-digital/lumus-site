@@ -7,7 +7,7 @@ import { IButtonProps } from './types'
  *
  * @example
  * ```tsx
- * <Button dataTestId="button-test">
+ * <Button data-testid="button-test">
  *   Example with test id
  * </Button>
  * ```
@@ -20,7 +20,7 @@ export default function Button({
   onClick,
   disabled,
   'aria-label': ariaLabel,
-  'data-test-id': dataTestId,
+  'data-testid': dataTestId,
   variant = 'primary', // Default variant
   ...props
 }: IButtonProps) {
@@ -38,7 +38,7 @@ export default function Button({
     <button
       className={`${isIconOnly ? '' : `${variantClass} ${className}`} font-semibold py-2 px-4 rounded-full cursor-pointer disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center`}
       aria-label={isIconOnly ? ariaLabel : undefined}
-      data-test-id={dataTestId || 'button'}
+      data-testid={dataTestId || 'button'}
       onClick={onClick}
       disabled={disabled}
       {...props}

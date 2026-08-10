@@ -1,7 +1,31 @@
+import type { Metadata } from 'next'
+import { Mail } from 'lucide-react'
 import Text from '@/components/Text'
 
 import Link from '@/components/Link'
 import Image from 'next/image'
+
+export const metadata: Metadata = {
+  title: 'Contato',
+  description:
+    'Entre em contato com a Lumus Digital para conversar sobre tecnologia, projetos e oportunidades.',
+  alternates: {
+    canonical: '/contact',
+  },
+  openGraph: {
+    title: 'Contato',
+    description:
+      'Entre em contato com a Lumus Digital para conversar sobre tecnologia, projetos e oportunidades.',
+    url: '/contact',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contato',
+    description:
+      'Entre em contato com a Lumus Digital para conversar sobre tecnologia, projetos e oportunidades.',
+  },
+}
 
 export default function Contact() {
   return (
@@ -9,7 +33,7 @@ export default function Contact() {
       <Text
         as="h1"
         className="text-3xl md:text-4xl font-bold text-white mb-2"
-        data-test-id="contact-title"
+        data-testid="contact-title"
       >
         Entre em contato
       </Text>
@@ -25,7 +49,12 @@ export default function Contact() {
           aria-label="GitHub"
           className="text-gray-300 hover:text-white text-4xl transition-colors"
         >
-          <Image src="/github-icon.svg" alt="GitHub" width={24} height={24} />
+          <Image
+            src="/icons/github-icon.svg"
+            alt="GitHub"
+            width={24}
+            height={24}
+          />
         </Link>
         <Link
           to="https://www.linkedin.com/in/hellen-susana-izolan/"
@@ -34,7 +63,7 @@ export default function Contact() {
           className="text-gray-300 hover:text-white text-4xl transition-colors"
         >
           <Image
-            src="/linkedin-icon.svg"
+            src="/icons/linkedin-icon.svg"
             alt="LinkedIn"
             width={24}
             height={24}
@@ -46,7 +75,7 @@ export default function Contact() {
           aria-label="E-mail"
           className="text-gray-300 hover:text-white text-4xl transition-colors"
         >
-          <Image src="/email-icon.svg" alt="E-mail" width={24} height={24} />
+          <Mail />
         </Link>
       </div>
     </section>

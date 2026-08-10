@@ -4,7 +4,11 @@ import './magic-particles.css'
 
 export default function MagicParticles() {
   return (
-    <div className="magic-particles">
+    <div
+      className="magic-particles"
+      aria-hidden="true"
+      data-testid="magic-particles"
+    >
       <span
         className="magic-particle"
         style={{

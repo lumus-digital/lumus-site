@@ -1,5 +1,5 @@
-import MagicParticles from '@/componentsMagicParticles'
-import Text from '@/componentsText'
+import MagicParticles from '@/components/MagicParticles'
+import Text from '@/components/Text'
 
 export default function Home() {
   return (
@@ -9,7 +9,7 @@ export default function Home() {
         <Text
           as="h1"
           className="text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl"
-          data-test-id="home-title"
+          data-testid="home-title"
         >
           Construindo experiências digitais com criatividade, inovação e
           propósito
@@ -17,7 +17,7 @@ export default function Home() {
         <Text
           as="p"
           className="mt-8 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8"
-          data-test-id="home-description"
+          data-testid="home-description"
         >
           Portfólio, laboratório e vitrine de projetos criativos.
         </Text>

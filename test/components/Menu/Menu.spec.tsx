@@ -7,9 +7,15 @@ describe('Menu component', () => {
     render(<Menu />)
     const nav = screen.getByTestId('menu')
     expect(nav).toBeInTheDocument()
-    expect(screen.getByText('Home')).toBeInTheDocument()
-    expect(screen.getByText('About')).toBeInTheDocument()
-    expect(screen.getByText('Contact')).toBeInTheDocument()
+    expect(screen.getByTestId('desktop-menu-item-home')).toHaveTextContent(
+      'Home',
+    )
+    expect(screen.getByTestId('desktop-menu-item-about')).toHaveTextContent(
+      'About',
+    )
+    expect(screen.getByTestId('desktop-menu-item-contact')).toHaveTextContent(
+      'Contact',
+    )
   })
 
   it('should open and close mobile menu on button click', () => {
@@ -17,7 +23,7 @@ describe('Menu component', () => {
 
     const openBtn = screen.getByRole('button', { name: /open main menu/i })
     fireEvent.click(openBtn)
-    expect(screen.getByText('Home')).toBeInTheDocument()
+    expect(screen.getByTestId('mobile-menu-item-home')).toBeInTheDocument()
 
     const closeBtn = screen.getByRole('button', { name: /close menu/i })
     fireEvent.click(closeBtn)
@@ -38,7 +44,7 @@ describe('Menu component', () => {
     const openBtn = screen.getByRole('button', { name: /open main menu/i })
     fireEvent.click(openBtn)
 
-    const aboutLink = screen.getAllByText('About')[0]
+    const aboutLink = screen.getByTestId('mobile-menu-item-about')
     fireEvent.click(aboutLink)
 
     expect(screen.getByTestId('menu')).toBeInTheDocument()

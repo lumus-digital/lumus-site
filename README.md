@@ -18,6 +18,18 @@ Em construção
 - React
 - TypeScript
 - Tailwind CSS
+- Lucide Icons
+- Storybook
+- Vitest + Testing Library
+- ESLint + Prettier
+- Husky + lint-staged
+- Plop (geração de componentes e páginas)
+
+## 🎨 Ícones
+
+Este projeto usa `lucide-react` para a biblioteca de ícones. Sempre que
+possível, prefira ícones nomeados da lib em vez de SVGs soltos, mantendo
+consistência visual, acessibilidade e tipagem nos componentes.
 
 ---
 
@@ -62,6 +74,30 @@ http://localhost:6006
 
 ---
 
+## ✅ Como rodar os testes
+
+O projeto usa [Vitest](https://vitest.dev), com Testing Library.
+
+Para rodar os testes unitários:
+
+```bash
+npm run test:unit
+```
+
+Para rodar a suíte com relatório de cobertura (thresholds mínimos de 80%):
+
+```bash
+npm run test:coverage
+```
+
+Modo watch (reexecuta ao salvar arquivos) também está disponível:
+
+```bash
+npm test
+```
+
+---
+
 ## 🎯 Objetivos do projeto
 
 - Servir como base do Lumus Digital
@@ -83,10 +119,13 @@ http://localhost:6006
 - [x] Página "Home"
 - [x] Página "Sobre"
 - [x] Página "Contato"
-- [ ] SEO
+- [x] SEO
+- [x] Página "Blog"
+- [ ] CMS para posts do Blog e paginação
+- [ ] Métricas Web Vitals
+- [ ] Analytics e Tracking
 - [ ] Otimização de imagens
 - [ ] Configuração para GitHub Copilot
-- [ ] Página "Blog"
 - [ ] Customização de páginas de erro
 - [ ] Translation
 
