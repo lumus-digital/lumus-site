@@ -116,7 +116,7 @@ export default function ShareActions({
               isExternal
               data-testid="share-linkedin-button"
               aria-label={`Compartilhar ${title} no LinkedIn`}
-              className={`flex items-center gap-3 rounded-t-2xl border-b border-zinc-800 px-4 py-3 text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-400 ${shareUrl ? 'text-zinc-100 hover:bg-zinc-900' : 'pointer-events-none text-zinc-500'}`}
+              className={`hidden items-center gap-3 rounded-t-2xl border-b border-zinc-800 px-4 py-3 text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-400 md:flex ${shareUrl ? 'text-zinc-100 hover:bg-zinc-900' : 'pointer-events-none text-zinc-500'}`}
             >
               <span className="flex size-9 items-center justify-center rounded-full bg-blue-500/15 text-blue-300 font-semibold">
                 in

@@ -5,6 +5,10 @@ import BlogDetailPage, {
   generateStaticParams,
 } from '@/app/blog/[id]/page'
 import { blogArticles } from '@/mocks/blogArticles'
+import {
+  getBlogArticlePath,
+  getBlogArticleSlug,
+} from '../../../src/utils/blogRoutes'
 
 vi.mock('next/navigation', () => ({
   notFound: vi.fn(() => {
@@ -20,7 +24,9 @@ describe('Blog detail page', () => {
   it('should generate static params for all blog articles', async () => {
     const params = await generateStaticParams()
 
-    expect(params).toEqual(blogArticles.map((article) => ({ id: article.id })))
+    expect(params).toEqual(
+      blogArticles.map((article) => ({ id: getBlogArticleSlug(article) })),
+    )
   })
 
   it('should generate metadata for an existing article', async () => {
@@ -32,7 +38,9 @@ describe('Blog detail page', () => {
     expect(metadata.description).toBe(
       `Lumus Digital · ${blogArticles[0].author} - ${blogArticles[0].summary}`,
     )
-    expect(metadata.alternates?.canonical).toBe('/blog/1')
+    expect(metadata.alternates?.canonical).toBe(
+      getBlogArticlePath(blogArticles[0]),
+    )
   })
 
   it('should generate fallback metadata for an unknown article id', async () => {
@@ -49,6 +57,10 @@ describe('Blog detail page', () => {
     render(page)
 
     expect(screen.getByTestId('blog-detail-page')).toBeInTheDocument()
+    expect(screen.getByTestId('blog-detail-category-link')).toHaveAttribute(
+      'href',
+      `/blog?categoria=${encodeURIComponent(blogArticles[0].category)}`,
+    )
     expect(screen.getByTestId('share-actions')).toBeInTheDocument()
     expect(screen.getByTestId('blog-detail-title')).toHaveTextContent(
       blogArticles[0].title,

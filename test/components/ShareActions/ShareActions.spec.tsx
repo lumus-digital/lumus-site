@@ -43,9 +43,15 @@ describe('ShareActions component', () => {
       'href',
       expect.stringContaining('linkedin.com/sharing/share-offsite'),
     )
+    expect(screen.getByTestId('share-linkedin-button')).toHaveClass(
+      'hidden',
+      'md:flex',
+    )
 
     expect(screen.getByTestId('share-other-button')).toBeEnabled()
+    expect(screen.getByTestId('share-other-button')).toBeVisible()
     expect(screen.getByTestId('share-copy-button')).toBeEnabled()
+    expect(screen.getByTestId('share-copy-button')).toHaveClass('border-b')
   })
 
   it('should copy the article link to the clipboard', async () => {
@@ -71,6 +77,10 @@ describe('ShareActions component', () => {
     render(<ShareActions title="Test article" path="/blog/test-article" />)
 
     fireEvent.click(screen.getByTestId('share-menu-button'))
+    await waitFor(() => {
+      expect(screen.getByTestId('share-menu')).toBeInTheDocument()
+    })
+
     fireEvent.click(screen.getByTestId('share-copy-button'))
 
     await waitFor(() => {
@@ -138,6 +148,9 @@ describe('ShareActions component', () => {
     render(<ShareActions title="Test article" path="/blog/test-article" />)
 
     fireEvent.click(screen.getByTestId('share-menu-button'))
+    await waitFor(() => {
+      expect(screen.getByTestId('share-menu')).toBeInTheDocument()
+    })
     fireEvent.click(screen.getByTestId('share-copy-button'))
 
     await waitFor(() => {

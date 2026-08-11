@@ -12,6 +12,20 @@ describe('Blog', () => {
     expect(screen.getByTestId('blog-title')).toHaveTextContent('Blog')
   })
 
+  it('should render one link per article card', async () => {
+    const page = await Blog({ searchParams: Promise.resolve({}) })
+
+    render(page)
+
+    const uniqueCategories = new Set(
+      blogArticles.map((article) => article.category),
+    )
+    const expectedLinkCount =
+      1 + 1 + uniqueCategories.size + blogArticles.length
+
+    expect(screen.getAllByRole('link')).toHaveLength(expectedLinkCount)
+  })
+
   it('should render only articles from the selected category', async () => {
     const category = blogArticles[0].category
     const page = await Blog({

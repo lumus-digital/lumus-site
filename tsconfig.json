@@ -23,7 +23,8 @@
       "@/routes*": ["./app/routes.ts"],
       "@/components*": ["./src/components/*"],
       "@/mocks*": ["./src/mocks/*"],
-      "@/tokens*": ["./src/tokens.ts"]
+      "@/tokens*": ["./src/tokens.ts"],
+      "@/utils*": ["./src/utils/*"]
     }
   },
   "include": [

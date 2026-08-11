@@ -8,6 +8,13 @@ import Breadcrumb from '@/components/Breadcrumb'
 import ShareActions from '@/components/ShareActions'
 import { colors } from '@/tokens'
 import type { ReactNode } from 'react'
+import Link from 'next/link'
+import {
+  getBlogArticleIdFromSlug,
+  getBlogArticlePath,
+  getBlogCategoryPath,
+  getBlogArticleSlug,
+} from '../../../src/utils/blogRoutes'
 
 const siteUrl = 'https://www.lumus-digital.dev.br'
 
@@ -45,14 +52,15 @@ interface BlogDetailPageProps {
 }
 
 export async function generateStaticParams() {
-  return blogArticles.map((article) => ({ id: article.id }))
+  return blogArticles.map((article) => ({ id: getBlogArticleSlug(article) }))
 }
 
 export async function generateMetadata({
   params,
 }: BlogDetailPageProps): Promise<Metadata> {
   const { id } = await params
-  const article = blogArticles.find((entry) => entry.id === id)
+  const articleId = getBlogArticleIdFromSlug(id)
+  const article = blogArticles.find((entry) => entry.id === articleId)
 
   if (!article) {
     return {
@@ -64,12 +72,12 @@ export async function generateMetadata({
     title: article.title,
     description: `Lumus Digital · ${article.author} - ${article.summary}`,
     alternates: {
-      canonical: `/blog/${article.id}`,
+      canonical: getBlogArticlePath(article),
     },
     openGraph: {
       title: article.title,
       description: `Lumus Digital · ${article.author} - ${article.summary}`,
-      url: new URL(`/blog/${article.id}`, siteUrl).toString(),
+      url: new URL(getBlogArticlePath(article), siteUrl).toString(),
       siteName: 'Lumus Digital',
       locale: 'pt_BR',
       type: 'article',
@@ -93,29 +101,44 @@ export async function generateMetadata({
 
 export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
   const { id } = await params
-  const article = blogArticles.find((a) => a.id === id)
+  const articleId = getBlogArticleIdFromSlug(id)
+  const article = blogArticles.find((a) => a.id === articleId)
   if (!article) return notFound()
 
   return (
     <section
-      className="max-w-3xl mx-auto p-8 mt-12 mb-12"
+      className="max-w-5xl mx-auto p-8 mt-12 mb-12"
       data-testid="blog-detail-page"
     >
       <Breadcrumb
         items={[
           { label: 'Home', href: '/' },
           { label: 'Blog', href: '/blog' },
-          { label: article.title },
+          {
+            label: article.category,
+            href: getBlogCategoryPath(article.category),
+          },
+          { label: '...' },
         ]}
         className="mb-4"
       />
       <Text
         as="h1"
-        className={`${colors.primary} text-3xl md:text-4xl font-bold mb-4`}
+        className={`text-white text-3xl md:text-4xl font-bold mb-4`}
         data-testid="blog-detail-title"
       >
         {article.title}
       </Text>
+      <div className="relative z-10 mb-6 flex flex-wrap items-center gap-3">
+        <Link
+          href={getBlogCategoryPath(article.category)}
+          className="relative z-10 inline-flex items-center rounded-full bg-purple-600/80 px-3 py-1.5 text-xs font-medium text-white shadow-sm transition-colors duration-200 hover:bg-purple-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+          aria-label={`Ver artigos da categoria ${article.category}`}
+          data-testid="blog-detail-category-link"
+        >
+          {article.category}
+        </Link>
+      </div>
       <div className="flex items-center gap-4 mb-6">
         <Image
           src={article.avatar}
@@ -139,7 +162,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
           </span>
           <ShareActions
             title={article.title}
-            path={`/blog/${article.id}`}
+            path={getBlogArticlePath(article)}
             shareText={`Lumus Digital · ${article.author} - ${article.summary}`}
           />
         </div>
@@ -163,7 +186,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
           </span>
         ))}
       </div>
-      <article className="prose prose-invert max-w-none">
+      <article className="max-w-none">
         {article.subtitle && (
           <div className="border-l-2 border-purple-300 pl-4 my-6">
             <Text
